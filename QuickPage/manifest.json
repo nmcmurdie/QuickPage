@@ -3,7 +3,7 @@
     "name": "Quickpage",
     "short_name": "Quickpage",
     "description": "Customize your New Tab page with unique and useful widgets",
-    "version": "3.00",
+    "version": "3.10",
     "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArKRgsTrL5Tb11zEyaZ8N8bKt+zWpfTJ8N0Dm1m/A6lTDBOBmRWKCKpCCCtxewOMZ9TyHCk/JifRHL3HoRIkpeJA6dfVCkR8leRzGxN3pYxk4R+WCKm/n8cUNW76ONoD9gS6bD9yOSsX0DCxO07dYKFq/WfcprHjsD+JuodLT7GB3IMIo99tNou21hKVCY/IrpVKbaBlUUcewOaoAa/WODu3kOISl1VuL6mcrKQaYFdOMqAFg0BT3dSgyuXui/7B3rGWzEPLNfHiHocQgrFujURpJbm+LpnmIiHPQ9T2tSyG+M4YjqqESDVwQwfmTZ/7N6rLmlF2L8uWDii06MDmRewIDAQAB",
     "browser_action": {
     	"default_popup": "checklist/index.html",

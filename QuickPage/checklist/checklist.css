@@ -776,7 +776,6 @@ body.dark {
 	width: 100%;
 	font-size: 16px;
 	color: var(--text-secondary);
-	vertical-align: top;
    margin-bottom: 10px;
    pointer-events: none;
 }

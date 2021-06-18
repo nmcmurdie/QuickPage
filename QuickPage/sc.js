@@ -1253,11 +1253,13 @@ function setSpotifyLike(liked, toggle) {
 
 function spotifyExpand(update) {
 	spotify.fullscreen = true;
-	checkSpotifyLike(setSpotifyLike);
-	var media = document.getElementById("sfs_media");
-	if (!update && document.getElementById("spotify_media").getAttribute("paused") != "") media.removeAttribute("paused");
-	else if (!update) media.setAttribute("paused", "");
-	getVar('vars', ['SpotifyAuthors', 'SpotifyTitle', 'SpotifyAlbum'], args => updateSpotifyExpandedPlayer(args, media));
+	let [sfsMedia, media, like] = getElements("sfs_media", "spotify_media", "spotify_like");
+	setSpotifyLike(like.hasAttribute("liked"), false);
+
+	if (!update && media.getAttribute("paused") != "") sfsMedia.removeAttribute("paused");
+	else if (!update) sfsMedia.setAttribute("paused", "");
+
+	getVar('vars', ['SpotifyAuthors', 'SpotifyTitle', 'SpotifyAlbum'], args => updateSpotifyExpandedPlayer(args, sfsMedia));
 	if (!update) {
 		snackbar("Click to Exit Fullscreen");
 		var sfs = document.getElementById("sfs");
@@ -1278,13 +1280,13 @@ function updateSpotifyExpandedPlayer(args, media) {
 			chrome.storage.local.get('SpotifyArt', req => {
 				let res = req['SpotifyArt'];
 				if (res) art.addEventListener("load", () => {
-					var vibrant = new Vibrant(art), swatches = vibrant.swatches(), colors = [], color;
+					let vibrant = new Vibrant(art), swatches = vibrant.swatches(), colors = [], color;
 					if (swatches.LightVibrant) colors = swatches.LightVibrant.rgb;
 					else for (var swatch in swatches) {
 						if (swatches.hasOwnProperty(swatch) && swatches[swatch]) colors = swatches[swatch].rgb;
 					}
 					color = "rgb(" + colors.join(",") + ")";
-					var total = colors[0] + colors[1] + colors[2];
+					let total = colors[0] + colors[1] + colors[2];
 					if (total >= 690 || total <= 60) {
 						media.parentNode.parentNode.classList.add("dark");
 						color = "#4c4c4c";

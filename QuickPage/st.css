@@ -804,7 +804,7 @@ feed {
 	cursor: pointer;
 	z-index: 4;
 	cursor: default;
-   color: #fff;
+    color: #fff;
 	transition: background-color .3s ease;
 }
 .feed-options-btn:hover {
