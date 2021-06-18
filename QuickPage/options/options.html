@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <style>
+         @font-face {
+             font-family: roboto;
+             src: url('../res/roboto.woff2');
+             font-weight: 400;
+             font-style: normal;
+             font-display: swap;
+         }
+         body {
+            height: 42px;
+            font-family: roboto, arial;
+            background-color: #f3f3f3;
+            transition: background-color .2s linear;
+            --text-color: #4c4c4c;
+         }
+         body.dark {
+            background-color: rgb(32, 33, 36);
+            --text-color: #f1f1f1;
+         }
+         input[type="checkbox"] {
+            -webkit-appearance: none;
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            padding: 10px;
+            top: 7px;
+            left: 10px;
+            outline: none;
+         }
+         input[type="checkbox"]:before {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            left: 0;
+            top: 0;
+            border: 3px solid #6c6e6f;
+            border-radius: 3px;
+            transition: border .2s linear, width .2s linear, height .2s linear;
+         }
+         input[type="checkbox"]:checked:before {
+            width: 0;
+            height: 0;
+            border: 10px solid #673AB7;
+         }
+         input[type="checkbox"]:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 3px;
+            top: 5px;
+            transform: rotate(-45deg);
+            transition: width .3s ease, height .1s linear;
+         }
+         input[type="checkbox"]:checked:after {
+         	width: 10px;
+         	height: 4px;
+         	border-bottom: 3px solid #fff;
+         	border-left: 3px solid #fff;
+         }
+         input[type="checkbox"] + label {
+            font-size: 16px;
+            margin-left: 24px;
+            color: var(--text-color);
+         }
+      </style>
+   </head>
+   <body>
+      <input type="checkbox" id="darkMode" />
+      <label for="darkMode">Dark Mode</label>
+   </body>
+   <script type="text/javascript" src="options.js"></script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="st.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<title>New Tab</title>
+	</head>
+	<body>
+		<main class="body" id="body">
+			<div class="feed-options-menu" id="feed_options">
+				<div class="feed-options-item ripple" id="refreshFeed">
+					<svg class="feed-options-item-icon" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z"/>
+					</svg>
+					<span>Refresh Feed</span>
+				</div>
+				<div class="feed-options-item ripple" id="editFeed">
+					<svg class="feed-options-item-icon" enable-background="new 0 0 24 24" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+						<path d="m12 22c-5.51 0-10-4.49-10-10s4.49-10 10-10 10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-0.28 0-0.5 0.22-0.5 0.5 0 0.12 0.05 0.23 0.13 0.33 0.41 0.47 0.64 1.06 0.64 1.67 0 1.38-1.12 2.5-2.5 2.5zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c0.28 0 0.5-0.22 0.5-0.5 0-0.16-0.08-0.28-0.14-0.35-0.41-0.46-0.63-1.05-0.63-1.65 0-1.38 1.12-2.5 2.5-2.5h1.77c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z"/>
+						<circle cx="6.5" cy="11.5" r="1.5"/>
+						<circle cx="9.5" cy="7.5" r="1.5"/>
+						<circle cx="14.5" cy="7.5" r="1.5"/>
+						<circle cx="17.5" cy="11.5" r="1.5"/>
+					</svg>
+					<span>Change Color</span>
+				</div>
+				<div class="feed-options-item ripple" id="deleteFeed">
+					<svg class="feed-options-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13zM9 8h2v9H9zm4 0h2v9h-2z"/>
+					</svg>
+					<span>Remove Widget</span>
+				</div>
+			</div>
+			<div class="feed-options-menu" id="checklist_filter">
+				<div class="feed-options-item ripple" id="filterDate">
+					<svg class="feed-options-item-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/>
+					</svg>
+					<span>Date</span>
+				</div>
+				<div class="feed-options-item ripple" id="filterPriority">
+					<svg class="feed-options-item-icon" enable-background="new 0 0 24 24" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+						<path d="M11,15h2v2h-2V15z M11,7h2v6h-2V7z M11.99,2C6.47,2,2,6.48,2,12s4.47,10,9.99,10C17.52,22,22,17.52,22,12S17.52,2,11.99,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8s8,3.58,8,8S16.42,20,12,20z"/>
+					</svg>
+					<span>Priority</span>
+				</div>
+				<div class="feed-options-item ripple" id="filterCompletion">
+					<svg class="feed-options-item-icon" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0.41,13.41L6,19L7.41,17.58L1.83,12M22.24,5.58L11.66,16.17L7.5,12L6.07,13.41L11.66,19L23.66,7M18,7L16.59,5.58L10.24,11.93L11.66,13.34L18,7Z"/>
+					</svg>
+					<span>Completion</span>
+				</div>
+			</div>
+		</main>
+		<div class="hud">
+			<div class="add-widgets tooltip icon ripple" id="addWidgets"></div>
+			<div class="add-widgets-menu" id="addWidgets_resize">
+				<div class="add-widgets-resize icon tooltip ripple" id="widgets_resize"></div>
+			</div>
+			<pre class="snackbar" id="snackbar">-</pre>
+		</div>
+		<div class="menu add-menu" id="add_menu">
+			<div class="menu-body" id="widget_preview"></div>
+			<span class="menu-title add-menu-title">
+				Edit Widgets
+				<div class="btn menu-submit add-menu-submit ripple" id="add_cancel">&#10005;</div>
+			</span>
+		</div>
+		<div class="menu request-info" id="request_info">
+			<span class="menu-title" id="request_title">None</span>
+			<br>
+			<div class="menu-body" id="request_body"></div>
+			<div class="btn menu-submit menu-cancel ripple" id="request_cancel">CANCEL</div>
+			<div class="btn menu-submit ripple" id="request_submit">ADD</div>
+			<div class="color-chooser" id="color_chooser">
+				<span class="color-chooser-title">Default Colors</span>
+			</div>
+			<div class="color-chooser date-chooser" id="date_chooser">
+				<div class="color-chooser-nav nav-left" id="date_prev"></div>
+				<span class="color-chooser-title" id="date_title">MONTH</span>
+				<div class="color-chooser-nav nav-right" id="date_next"></div>
+				<div class="date-item date-item-special">S</div>
+				<div class="date-item date-item-special">M</div>
+				<div class="date-item date-item-special">T</div>
+				<div class="date-item date-item-special">W</div>
+				<div class="date-item date-item-special">Th</div>
+				<div class="date-item date-item-special">F</div>
+				<div class="date-item date-item-special">S</div>
+				<div></div>
+			</div>
+		</div>
+		<div class="menu welcome" id="welcome">
+			<span class="menu-title">Welcome to QuickPage!</span>
+			<br>
+			<span class="menu-body">Your tab is empty! Click the red 'Edit' button to add some widgets</span>
+			<div class="btn menu-submit ripple" id="welcome_go">GO</div>
+		</div>
+		<div class="overlay"></div>
+		<div class="spotify-fs" id="sfs">
+			<div class="sfs-bg" id="sfs_bg"></div>
+			<img class="sfs-art" id="sfs_art" src="res/album.svg">
+			<div class="sfs-info" id="sfs_info">
+				<div class="sfs-title" id="sfs_title">-</div>
+				<div class="sfs-data">
+					<span class="sfs-album" id="sfs_album">-</span>
+					<span class="sfs-author" id="sfs_author">-</span>
+				</div>
+				<div class="sfs-controls">
+					<div class="sfs-like" id="sfs_like">
+						<svg class="spotify-like-image" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
+						</svg>
+						<svg class="spotify-like-image" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+						</svg>
+					</div>
+					<div>
+						<div class="sfs-prev" id="sfs_prev">
+							<svg class='spotify-previous-image' width='38' height='38' viewBox='0 0 38 38'>
+								<rect x='6' y='6' width='2' height='12'/><path d='M9.5,12l8.5,6V6L9.5,12z M16,14.14L12.97,12L16,9.86V14.14z'/>
+							</svg>
+						</div>
+						<div class="sfs-media ripple" paused id="sfs_media"></div>
+						<div class="sfs-next" id="sfs_next">
+							<svg class='spotify-next-image' width='38' height='38' viewBox='0 0 38 38'>
+								<path d='M6,18l8.5-6L6,6V18z M8,9.86L11.03,12L8,14.14V9.86z'/>
+								<rect x='16' y='6' width='2' height='12'/>
+							</svg>
+						</div>
+					</div>
+					<div class="spotify-placeholder"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript" src="sc.js"></script>
+	<script type="text/javascript" src="api/feednami.js"></script>
+	<script type="text/javascript" src="api/vibrant.js" async></script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="checklist.css" />
+		<script type="text/javascript" src="../common.js"></script>
+		<script type="text/javascript" src="checklist.js"></script>
+	</head>
+	<body>
+		<div class="list" id="list"></div>
+		<div class="header">
+			<span class="title">Checklist</span>
+			<div class="filter" id="filter"></div>
+			<div class="add" id="add"></div>
+		</div>
+		<div class="fab" id="fab">+</div>
+		<div class="options-menu filter-menu" id="filter-menu">
+			<div class="options-item ripple" style="background-image:url(../res/date.svg)" id="filterDate">Date</div>
+			<div class="options-item ripple" style="background-image:url(../res/error.svg)" id="filterPriority">Priority</div>
+			<div class="options-item ripple" style="background-image:url(../res/complete.svg)" id="filterCompletion">Completion</div>
+		</div>
+		<div class="menu" id="menu_options">
+			<span class="menu-ttl">Item Options:</span>
+			<input class="input-text" type="text" id="options_input" required>
+			<label class="input-label" for="options_input">URL or Note (Optional)</label>
+			<div class="btn-copy" id="copy"></div>
+			<input class="input-text" type="text" id="options_date" required>
+			<label class="input-label" for="options_date">Date (mm/dd/yy)</label>
+			<label class="slider-label">
+				<span>Importance:</span>
+				<span class="slider-importance" id="slider_text">Medium</span>
+			</label>
+			<input class="input-slider" type="range" id="options_slider" min="0" max="200">
+			<div class="menu-actions">
+				<div class="btn btn-delete" id="delete">DELETE</div>
+				<div class="btn" id="options_save">SAVE</div>
+			</div>
+			<div class="date-chooser" id="date_chooser">
+				<div class="color-chooser-nav nav-left" id="date_prev"></div>
+				<span class="color-chooser-title" id="date_title">MONTH</span>
+				<div class="color-chooser-nav nav-right" id="date_next"></div>
+				<div class="date-item date-item-special">S</div>
+				<div class="date-item date-item-special">M</div>
+				<div class="date-item date-item-special">T</div>
+				<div class="date-item date-item-special">W</div>
+				<div class="date-item date-item-special">Th</div>
+				<div class="date-item date-item-special">F</div>
+				<div class="date-item date-item-special">S</div>
+				<div></div>
+			</div>
+		</div>
+		<div class="menu" id="menu_notes">
+			<span class="menu-ttl">Note:</span>
+			<textarea class="notes-editor" id="note_editor"></textarea>
+			<div class="menu-actions">
+				<div class="btn" id="notes_save">SAVE</div>
+			</div>
+		</div>
+		<div id="overlay"></div>
+		<pre class="snackbar" id="snackbar">-</pre>
+	</body>
+</html>
