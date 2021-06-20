@@ -1061,11 +1061,16 @@ function requestSpotifyAuth() {
 					scope = 'user-read-currently-playing user-modify-playback-state user-read-playback-state user-library-read user-library-modify';
 			var redirectURI = chrome.identity.getRedirectURL("spotify"),
 				authURL = "https://accounts.spotify.com/authorize?client_id=" + spotifyClientID + "&redirect_uri=" + encodeURIComponent(redirectURI) + "&response_type=code&scope=" + encodeURIComponent(scope);
-			chrome.identity.launchWebAuthFlow({'url' : authURL, 'interactive' : true}, function(redirect_url) {
-				if (redirect_url) request("GET", `${apiBaseURL}spotifyauth?redirect_uri=${redirectURI}&code=${redirect_url.split("=")[1]}`, undefined, response => {
-					setVar('vars', ['SpotifyOAuth', 'SpotifyRefresh'], [response.access_token + "%" + new Date().getTime(), response.refresh_token]);
+			try {
+				chrome.identity.launchWebAuthFlow({'url' : authURL, 'interactive' : true}, function(redirect_url) {
+					if (redirect_url) request("GET", `${apiBaseURL}spotifyauth?redirect_uri=${redirectURI}&code=${redirect_url.split("=")[1]}`, undefined, response => {
+						setVar('vars', ['SpotifyOAuth', 'SpotifyRefresh'], [response.access_token + "%" + new Date().getTime(), response.refresh_token]);
+					});
 				});
-			});
+			}
+			catch (err) {
+				snackbar('Failed to authenticate with Spotify');
+			}
 		}
 	});
 }
@@ -1233,7 +1238,8 @@ function checkSpotifyLike(callback) {
 
 function setSpotifyLike(liked, toggle) {
 	if (typeof liked === 'object') liked = liked[0];
-	if (toggle === 200) toggle = false;
+	if (toggle === 401) return;
+	else if (toggle === 200) toggle = false;
 
 	let btn = spotify.fullscreen ? document.getElementById("sfs_like") : document.getElementById("spotify_like");
 	if (toggle) {
